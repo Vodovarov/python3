@@ -6,7 +6,7 @@
 """
 
 try:
-    f = open('task5.2.txt', 'r')
+    f = open('task5.2.txt', 'r', encoding='utf-8')
     i = 0
     qty = 0
     result = {}
@@ -16,8 +16,14 @@ try:
         result.setdefault(i, qty)
 
     print('Всего строк в файле: ' + str(i))
+    print('Слов построчно: ')
     for key, value in result.items():
-        print(f'В {key}-й строке:  {value} слов')
+        if key == 2:
+            print(f'Вo {key}-й строке: {value} слов')
+        else:
+            print(f'В {key}-й строке:  {value} слов')
+
+    f.close()
 
 except IOError as e:
     print('I/O error({0}): {1}'.format(e.errno, e.strerror))
